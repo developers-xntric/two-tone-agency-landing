@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -34,13 +34,13 @@ export default function HeroSection() {
             </h1>
 
             {/* Description */}
-            <p className="text-gray-400 text-base leading-relaxed">
+            <p className="text-white text-base leading-relaxed">
               Quick deadlines? No problem. Our team transforms bold concepts
               into standout Ramadan videos that deliver real results.
             </p>
 
             {/* CTA Button */}
-            <button className="inline-flex bg-[#B1CB34] text-black items-center gap-2 pl-6 pr-2 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition-opacity group cursor-pointer">
+            <button className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-2 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition-opacity group cursor-pointer">
               GET IN TOUCH
               <div className="bg-white rounded-full p-2">
                 <ArrowRight
@@ -50,22 +50,41 @@ export default function HeroSection() {
               </div>
             </button>
 
-
             {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-border">
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-accent">250+</p>
-                <p className="text-sm text-gray-500">Projects Completed</p>
+            <div className="grid grid-cols-3 gap-4 pt-8 items-center">
+
+              {/* Item 1 */}
+              <div className="relative space-y-1  w-full">
+                <p className="text-3xl font-bold text-[#CAED63] pb-3">250+</p>
+                <p className="text-sm text-white border-t border-[#FFFFFF33] pt-2">
+                  Projects Completed
+                </p>
+
+                {/* Separator */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-[#FFFFFF33]" />
               </div>
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-accent">25+</p>
-                <p className="text-sm text-gray-500">Clients</p>
+
+              {/* Item 2 */}
+              <div className="relative space-y-1 text-center w-full">
+                <p className="text-3xl font-bold text-[#CAED63] pb-3">25+</p>
+                <p className="text-sm text-white border-t border-[#FFFFFF33] pt-2">
+                  Clients
+                </p>
+
+                {/* Separator */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-[#FFFFFF33]" />
               </div>
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-accent">5+</p>
-                <p className="text-sm text-gray-500">Years in the Industry</p>
+
+              {/* Item 3 */}
+              <div className="space-y-1 text-center w-full">
+                <p className="text-3xl font-bold text-[#CAED63] pb-3">5+</p>
+                <p className="text-sm text-white border-t border-[#FFFFFF33] pt-2">
+                  Years in the Industry
+                </p>
               </div>
+
             </div>
+
           </div>
         </div>
       </div>
