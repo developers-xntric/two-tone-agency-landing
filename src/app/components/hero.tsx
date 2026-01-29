@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { ArrowRight, Mail } from 'lucide-react'
+import { ArrowRight} from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-16 bg-background min-h-screen flex items-center">
+    <section className="relative pt-24 pb-16  min-h-screen flex items-center">
       <div className="w-[90%] 2xl:max-w-[1440px] mx-auto">
         <div className="grid grid-cols-12 gap-8 items-center">
           {/* Left side - Video (70%) */}
@@ -18,7 +18,10 @@ export default function HeroSection() {
                 loop
                 playsInline
               >
-                <source src="https://videos.pexels.com/video-files/18069247/18069247-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                <source
+                  src="https://videos.pexels.com/video-files/18069247/18069247-hd_1920_1080_30fps.mp4"
+                  type="video/mp4"
+                />
               </video>
             </div>
           </div>
@@ -32,14 +35,21 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-gray-400 text-base leading-relaxed">
-              Quick deadlines? No problem. Our team transforms bold concepts into standout Ramadan videos that deliver real results.
+              Quick deadlines? No problem. Our team transforms bold concepts
+              into standout Ramadan videos that deliver real results.
             </p>
 
             {/* CTA Button */}
-            <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition-opacity group">
+            <button className="inline-flex bg-[#B1CB34] text-black items-center gap-2 pl-6 pr-2 py-3 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition-opacity group cursor-pointer">
               GET IN TOUCH
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <div className="bg-white rounded-full p-2">
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </div>
             </button>
+
 
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-border">
@@ -60,5 +70,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
