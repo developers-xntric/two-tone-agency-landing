@@ -83,7 +83,7 @@ export function SocialChannelsSection() {
                     {channels.map((channel, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-center border-t border-b border-[#2A2A2A] px-4 py-3 hover:border-[#CAED63] transition-all cursor-pointer w-full h-20"
+                            className="flex items-center justify-center border-t border-b border-[#2A2A2A] px-4 py-3 hover:border-[#CAED63] transition-all  w-full h-20"
                         >
                             <div className="relative w-full h-full">
                                 <Image

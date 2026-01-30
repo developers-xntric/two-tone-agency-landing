@@ -19,7 +19,7 @@ export function ContactForm() {
     return (
         <div className="relative ">
 
-            <div className="hidden md:block absolute 2xl:left-[-55%] left-[-45%] top-[20%] w-[300px] lg:w-[800px] h-full pointer-events-none">
+            <div className="hidden md:block absolute 2xl:left-[-55%] left-[-50%] top-[20%] w-[300px] lg:w-[800px] h-full pointer-events-none">
                 <Image
                     src="/left-gradient.png"
                     alt="left "
@@ -28,15 +28,7 @@ export function ContactForm() {
                 />
             </div>
 
-            {/* Right Gradient */}
-            <div className="hidden md:block absolute right-[-46%] 2xl:right-[-55%] top-[10%] w-[300px] lg:w-[800px] h-full pointer-events-none">
-                <Image
-                    src="/right-gradient.png"
-                    alt="right"
-                    fill
-                    className="object-contain object-right"
-                />
-            </div>
+           
             <section className="py-10 relative overflow-hidden">
 
                 <div className="w-[90%] md:w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto text-left md:text-center relative z-10">

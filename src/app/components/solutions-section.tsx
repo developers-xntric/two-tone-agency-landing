@@ -49,7 +49,7 @@ export function SolutionsSection() {
             </div>
 
             {/* Right Gradient */}
-            <div className="hidden md:block absolute right-[-35%] 2xl:right-[-55%] top-[10%] w-[300px] lg:w-[800px] h-full pointer-events-none">
+            <div className="hidden md:block absolute right-[-30%] 2xl:right-[-55%] top-[10%] w-[300px] lg:w-[800px] h-full pointer-events-none">
                 <Image
                     src="/right-gradient.png"
                     alt="right"

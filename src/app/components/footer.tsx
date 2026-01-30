@@ -5,10 +5,10 @@ import { ArrowRight } from "lucide-react";
 
 export function Footer() {
     return (
-        <footer className="md:w-[97%] bg-gradient-to-r from-[#0d231a] via-[#0d472a] to-[#1f4116] md:rounded-t-[40px] md:mb-10 mt-10 ">
+        <footer className="md:w-[97%] bg-gradient-to-r from-[#0d231a] via-[#0d472a] to-[#374c2f] md:rounded-t-[40px] md:mb-10 mt-10 ">
             <div className="w-[90%] 2xl:w-full 2xl:max-w-[1440px] mx-auto md:px-8 pt-10 pb-4">
                 {/* Main Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-8 md:items-center mb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-8 xl:gap-1 2xl:gap-8 md:items-center mb-12">
                     {/* Logo */}
                     <div className="flex justify-start">
                         <div className="relative w-24 h-16">
