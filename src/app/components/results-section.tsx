@@ -85,10 +85,10 @@ export default function ResultsSection() {
         <div className="mx-auto 2xl:w-[50%]">
           {/* Header */}
           <div className="mb-12 text-center">
-            <h2 className="text-4xl 2xl:text-5xl font-bold mb-3 text-balance">
+            <h2 className="text-4xl 2xl:text-5xl font-normal mb-3 text-balance">
               Results That Turn Heads
             </h2>
-            <p className="text-white text-base 2xl:text-lg">
+            <p className="text-white text-base 2xl:text-lg tracking-wide">
               Our clients are hitting new milestones, driving solid ROI, and standing out from the crowd.
             </p>
           </div>
@@ -127,7 +127,7 @@ export default function ResultsSection() {
                 {/* Expanded Content */}
                 {expandedId === project.id && (
                   <div className="border-t border-slate-800 py-4 pr-4 animate-in fade-in duration-300">
-                    <p className="text-xs text-white/50 leading-relaxed">
+                    <p className="text-xs text-white/60 leading-relaxed tracking-wide">
                       {project.accordionDescription}
                     </p>
                   </div>
@@ -153,20 +153,20 @@ export default function ResultsSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Challenge */}
               <div className="space-y-2">
-                <h3 className="text-sm font-semibold text-white tracking-wide">
+                <h3 className="text-base font-normal text-white tracking-wide">
                   Challenge
                 </h3>
-                <p className="text-sm text-white/50 leading-relaxed">
+                <p className="text-sm text-white/60 leading-relaxed tracking-wide">
                   {selectedProject.challenge}
                 </p>
               </div>
 
               {/* Plot Twist */}
               <div className="space-y-2">
-                <h3 className="text-sm font-semibold text-white tracking-wide">
+                <h3 className="text-base font-normal text-white tracking-wide">
                   The Plot Twist?
                 </h3>
-                <p className="text-sm text-white/50 leading-relaxed">
+                <p className="text-sm text-white/60 leading-relaxed tracking-wide">
                   {selectedProject.plotTwist}
                 </p>
               </div>
@@ -174,10 +174,10 @@ export default function ResultsSection() {
 
             {/* Solution */}
             <div className="mt-4 pt-4 space-y-2">
-              <h3 className="text-sm font-semibold tracking-wide">
+              <h3 className="text-base font-normal tracking-wide">
                 The Game Plan?
               </h3>
-              <p className="text-sm text-white/50 leading-relaxed">
+              <p className="text-sm text-white/60 leading-relaxed tracking-wide">
                 {selectedProject.solution}
               </p>
             </div>

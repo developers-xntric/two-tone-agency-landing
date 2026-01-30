@@ -4,11 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative 2xl:pt-36 pt-28 pb-20 flex items-center">
+    <section className="relative 2xl:pt-36 pt-20 md:pt-28 pb-20 flex items-center">
       <div className="2xl:w-[100%] w-[90%] 2xl:max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 items-center">
           {/* Left side - Video (70%) */}
-          <div className="w-full">
+          <div className="w-full order-2 lg:order-1 ">
             <div className="relative w-full aspect-video overflow-hidden bg-gradient-to-br from-teal-600 via-purple-600 to-purple-900 shadow-2xl">
               {/* Placeholder for video - you can replace with actual video */}
               <video src={"/video.mp4"} autoPlay muted loop className="w-full h-full object-cover" />
@@ -16,20 +16,20 @@ export default function HeroSection() {
           </div>
 
           {/* Right side - Content (30%) */}
-          <div className="w-full space-y-6">
+          <div className="w-full space-y-6 order-1 lg:order-2">
             {/* Heading */}
-            <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-foreground">
+            <h1 className="text-4xl lg:text-5xl 2xl:text-6xl font-normal leading-tight 2xl:leading-[67px] text-foreground font-myfont tracking-wide">
               Where Bold Ideas Meet Big Results
             </h1>
 
             {/* Description */}
-            <p className="text-white text-base leading-relaxed">
+            <p className="text-white text-base leading-relaxed font-myfont tracking-wide">
               Quick deadlines? No problem. Our team transforms bold concepts
               into standout Ramadan videos that deliver real results.
             </p>
 
             {/* CTA Button */}
-            <button className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-2 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition-opacity group cursor-pointer">
+            <button className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-1 md:py-2 rounded-full bg-accent text-accent-foreground font-normal hover:opacity-90 transition-opacity group cursor-pointer">
               GET IN TOUCH
               <div className="bg-white rounded-full p-2">
                 <ArrowRight
@@ -44,8 +44,8 @@ export default function HeroSection() {
 
               {/* Item 1 */}
               <div className="relative space-y-1  w-full">
-                <p className="text-3xl font-bold text-[#CAED63] pb-3">250+</p>
-                <p className="text-sm text-white border-t border-[#FFFFFF33] pt-2">
+                <p className="text-3xl font-bold text-[#CAED63] pb-3 tracking-wide">250+</p>
+                <p className="text-xs md:text-sm text-white border-t border-[#FFFFFF33] pt-2">
                   Projects Completed
                 </p>
 
@@ -55,8 +55,8 @@ export default function HeroSection() {
 
               {/* Item 2 */}
               <div className="relative space-y-1 text-center w-full">
-                <p className="text-3xl font-bold text-[#CAED63] pb-3">25+</p>
-                <p className="text-sm text-white border-t border-[#FFFFFF33] pt-2">
+                <p className="text-3xl font-bold text-[#CAED63] pb-3 tracking-wide">25+</p>
+                <p className="text-xs md:text-sm text-white border-t border-[#FFFFFF33] pt-2">
                   Clients
                 </p>
 
@@ -66,8 +66,8 @@ export default function HeroSection() {
 
               {/* Item 3 */}
               <div className="space-y-1 text-center w-full">
-                <p className="text-3xl font-bold text-[#CAED63] pb-3">5+</p>
-                <p className="text-sm text-white border-t border-[#FFFFFF33] pt-2">
+                <p className="text-3xl font-bold text-[#CAED63] pb-3 tracking-wide">5+</p>
+                <p className="text-xs md:text-sm text-white border-t border-[#FFFFFF33] pt-2">
                   Years in the Industry
                 </p>
               </div>

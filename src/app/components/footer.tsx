@@ -23,7 +23,7 @@ export function Footer() {
 
                     {/* Center Text */}
                     <div className="text-left">
-                        <p className="text-white text-base lg:text-lg leading-relaxed">
+                        <p className="text-white text-base lg:text-lg leading-relaxed tracking-wide">
                             Every project begins with your vision and ends with a message that resonates.
                             Our team is here to help you share powerful Ramadan moments with
                             authenticity and impact.
@@ -32,11 +32,11 @@ export function Footer() {
 
                     {/* CTA Button */}
                     <div className="flex justify-end">
-                        <button className="inline-flex items-center gap-2 pl-6 pr-2 py-2 rounded-full font-semibold
+                        <button className="inline-flex items-center gap-2 pl-6 pr-2 py-2 rounded-full font-normal
     bg-white/20 backdrop-blur-md text-white
     border border-white/20
     hover:bg-white/20 transition-all duration-300
-    group cursor-pointer">
+    group cursor-pointer tracking-wide">
 
                             Connect with an expert
 

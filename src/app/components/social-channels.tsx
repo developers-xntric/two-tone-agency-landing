@@ -34,7 +34,7 @@ export function SocialChannelsSection() {
         <section className="py-6">
             <div className="w-[90%] 2xl:w-[100%] 2xl:max-w-[1440px] mx-auto">
                 {/* Title */}
-                <h2 className="text-4xl 2xl:text-5xl font-bold text-white text-center mb-12">
+                <h2 className="text-4xl 2xl:text-5xl font-normal text-white text-center mb-6">
                     Channels We Focus On
                 </h2>
 

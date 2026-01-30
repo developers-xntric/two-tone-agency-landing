@@ -39,7 +39,7 @@ export function SolutionsSection() {
     return (
         <section className="py-10 ">
             <div className="w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto">
-                <h2 className="text-4xl 2xl:text-5xl font-bold text-center text-white mb-16 leading-tight">
+                <h2 className="text-4xl 2xl:text-5xl font-normal text-center text-white mb-16 leading-tight">
                     Delivering Solutions
                     <br />
                     with Unmatched Expertise
@@ -60,11 +60,11 @@ export function SolutionsSection() {
                                         className="object-contain"
                                     />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white transition-colors">
+                                <h3 className="text-2xl font-normal text-white transition-colors tracking-wide">
                                     {item.title}
                                 </h3>
                             </div>
-                            <p className="text-white text-base leading-relaxed">
+                            <p className="text-white text-base leading-relaxed tracking-wide">
                                 {item.description}
                             </p>
                         </div>

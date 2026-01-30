@@ -18,16 +18,16 @@ export function ContactForm() {
         <section className="py-10">
             <div className="w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto text-center">
                 {/* Header */}
-                <h2 className="text-3xl lg:text-5xl font-bold text-white mb-12">
+                <h2 className="text-4xl 2xl:text-5xl font-normal text-white mb-12">
                     Let's Talk Book A Free Consultation
                 </h2>
 
                 <div className="bg-[#181818]  p-8 lg:p-14 text-left w-full">
                     <div className="mb-8">
-                        <h3 className="text-2xl lg:text-3xl font-medium text-white mb-2">
+                        <h3 className="text-2xl lg:text-3xl font-normal text-white mb-2">
                             Have a project in mind?
                         </h3>
-                        <h3 className="text-2xl lg:text-3xl font-medium text-white mb-2">
+                        <h3 className="text-2xl lg:text-3xl font-normal text-white mb-2">
                             Let's connect and turn your vision into reality.
                         </h3>
                     </div>
@@ -89,7 +89,7 @@ export function ContactForm() {
                         <div className="flex justify-center">
                             <button
                                 type="button"
-                                className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity group cursor-pointer"
+                                className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-2 rounded-full font-normal hover:opacity-90 transition-opacity group cursor-pointer"
                             >
                                 Submit
                                 <div className="bg-white rounded-full p-2">

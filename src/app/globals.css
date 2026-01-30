@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000;
 }
 
 @theme inline {
@@ -10,6 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-myfont: var(--font-myfont);
+}
+
+@font-face {
+  font-family: "POWERGROTESK-REGULAR";
+  src: url("/fonts/POWERGROTESK-REGULAR.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +29,7 @@
 }
 
 body {
-  background: var(--background);
+  background: #000;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "POWERGROTESK-REGULAR", Arial, Helvetica, sans-serif;
 }
