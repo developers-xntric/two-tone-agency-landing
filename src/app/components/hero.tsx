@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { SectionGradients } from "./section-gradients";
 import Image from "next/image";
 
 export default function HeroSection() {
@@ -26,7 +25,7 @@ export default function HeroSection() {
           className="object-contain object-right"
         />
       </div>
-      <section className="relative 2xl:pt-36 pt-20 md:pt-28 pb-20 flex items-center overflow-hidden">
+      <section className="relative 2xl:pt-36 pt-20 md:pt-28 md:pb-20 flex items-center overflow-hidden">
 
         <div className="2xl:w-[100%] w-[90%] 2xl:max-w-[1440px] mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 items-center">
