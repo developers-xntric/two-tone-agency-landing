@@ -8,8 +8,7 @@ import { SolutionsSection } from "./components/solutions-section";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center bg-black
-    ">
+    <div className="flex flex-col min-h-screen items-center overflow-x-hidden justify-center bg-black ">
       <HeroSection/>
       <RamadanSection/>
       <SocialChannelsSection/>

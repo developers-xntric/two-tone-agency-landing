@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
+
 const projects = [
   {
     id: 1,
@@ -92,186 +93,210 @@ export default function ResultsSection() {
   const currentProject = projects[currentSlide]
 
   return (
-    <section className="w-full bg-black text-white py-16 ">
-      <div className="w-[90%] md:w-[80%] 2xl:max-w-[1250px] mx-auto">
-        {/* Header */}
-        <div className="mx-auto 2xl:w-[50%]">
-          <div className="mb-12 md:text-center">
-            <h2 className="text-[25px] md:text-4xl 2xl:text-5xl font-normal mb-3 text-balance">
-              Results That Turn Heads
-            </h2>
-            <p className="text-white text-base 2xl:text-lg tracking-wide">
-              Our clients are hitting new milestones, driving solid ROI, and standing out from the crowd.
-            </p>
-          </div>
-        </div>
 
-        {/* Mobile Slider */}
-        <div className="md:hidden space-y-6">
-          {/* Image with Overlay */}
-          <div className="relative w-full h-[400px] rounded-xl overflow-hidden bg-slate-900">
-            <Image
-              src={currentProject.image}
-              alt={currentProject.title}
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-
-            {/* Overlay Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
-              <h3 className="text-2xl font-normal text-white tracking-wide">
-                {currentProject.title}
-              </h3>
-              <p className="text-xs text-white/80 leading-relaxed tracking-wide">
-                {currentProject.accordionDescription}
-              </p>
-            </div>
-          </div>
-
-          {/* Tabs */}
-          <div className="grid grid-cols-3 gap-2">
-            <button
-              onClick={() => setActiveTab('challenge')}
-              className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'challenge'
-                  ? 'text-[#CAED63] underline '
-                  : ' text-white '
-                }`}
-            >
-              Challenge
-            </button>
-            <button
-              onClick={() => setActiveTab('solution')}
-              className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'solution'
-                  ? 'text-[#CAED63] underline '
-                  : ' text-white '
-                }`}
-            >
-              Game Plan
-            </button>
-            <button
-              onClick={() => setActiveTab('plotTwist')}
-              className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'plotTwist'
-                  ? 'text-[#CAED63] underline '
-                  : ' text-white '
-                }`}
-            >
-              Plot Twist
-            </button>
-          </div>
-
-          {/* Tab Content */}
-          <div className=" rounded-lg p-2 min-h-[150px]">
-            <p className="text-sm text-white/80 leading-relaxed tracking-wide">
-              {activeTab === 'challenge' && currentProject.challenge}
-              {activeTab === 'solution' && currentProject.solution}
-              {activeTab === 'plotTwist' && currentProject.plotTwist}
-            </p>
-          </div>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center gap-2 pt-1">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`h-2 rounded-full transition-all ${currentSlide === index ? 'bg-[#CAED63] w-8' : 'bg-white/30 w-2'
-                  }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Accordion - Left Side */}
-          <div className="lg:col-span-1 space-y-3">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className={`border-b ${project.id === 1 ? 'border-t' : ''} border-[#DDDDDD] overflow-hidden transition-all duration-300`}
-              >
-                <button
-                  onClick={() => toggleProject(project)}
-                  className={`w-full cursor-pointer text-left pt-3 pb-4 transition-all duration-300 flex items-center justify-between ${selectedProject.id === project.id
-                    ? 'bg-transparent text-white'
-                    : 'bg-transparent text-white hover:bg-transparent'
-                    }`}
-                >
-                  <span className="font-medium text-sm md:text-[20px]">
-                    {project.title}
-                  </span>
-                  <div className="w-8 h-6 flex-shrink-0 relative">
-                    <Image
-                      src={expandedId === project.id ? '/images/active-accordan.png' : '/images/unactive -accordan.png'}
-                      alt="accordion icon"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </button>
-
-                {/* Expanded Content */}
-                {expandedId === project.id && (
-                  <div className="border-t border-slate-800 py-4 pr-4 animate-in fade-in duration-300">
-                    <p className="text-xs text-white/60 leading-relaxed tracking-wide">
-                      {project.accordionDescription}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Image - Right Side */}
-          <div className="lg:col-span-2">
-            {/* Image */}
-            <div className="relative w-full h-80 md:h-96 rounded-xl overflow-hidden mb-6 bg-slate-900">
-              <Image
-                src={selectedProject.image || "/placeholder.svg"}
-                alt={selectedProject.title}
-                fill
-                className="object-cover transition-opacity duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
-            </div>
-
-            {/* Content Grid for expanded project */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Challenge */}
-              <div className="space-y-2">
-                <h3 className="text-base font-normal text-white tracking-wide">
-                  Challenge
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed tracking-wide">
-                  {selectedProject.challenge}
-                </p>
-              </div>
-
-              {/* Plot Twist */}
-              <div className="space-y-2">
-                <h3 className="text-base font-normal text-white tracking-wide">
-                  The Plot Twist?
-                </h3>
-                <p className="text-sm text-white/60 leading-relaxed tracking-wide">
-                  {selectedProject.plotTwist}
-                </p>
-              </div>
-            </div>
-
-            {/* Solution */}
-            <div className="mt-4 pt-4 space-y-2">
-              <h3 className="text-base font-normal tracking-wide">
-                The Game Plan?
-              </h3>
-              <p className="text-sm text-white/60 leading-relaxed tracking-wide">
-                {selectedProject.solution}
-              </p>
-            </div>
-          </div>
-        </div>
+    <div className='relative '>
+      <div className="hidden md:block absolute left-[-40%] top-60 w-[300px] lg:w-[800px] h-full pointer-events-none">
+        <Image
+          src="/left-gradient.png"
+          alt="left "
+          fill
+          className="object-contain object-left"
+        />
       </div>
-    </section>
+
+      {/* Right Gradient */}
+      <div className="hidden md:block absolute right-[-35%] 2xl:right-[-42%] top-[-5%] w-[300px] lg:w-[800px] h-full pointer-events-none">
+        <Image
+          src="/right-gradient.png"
+          alt="right"
+          fill
+          className="object-contain object-right"
+        />
+      </div>
+
+      <section className="w-full text-white py-16 relative ">
+
+        <div className="w-[90%] md:w-[80%] 2xl:max-w-[1440px] 2xl:w-[85%] mx-auto relative z-10">
+          {/* Header */}
+          <div className="mx-auto 2xl:w-[50%]">
+            <div className="mb-12 md:text-center">
+              <h2 className="text-[25px] md:text-4xl 2xl:text-5xl font-normal mb-3 text-balance">
+                Results That Turn Heads
+              </h2>
+              <p className="text-white text-base 2xl:text-lg tracking-wide">
+                Our clients are hitting new milestones, driving solid ROI, and standing out from the crowd.
+              </p>
+            </div>
+          </div>
+
+          {/* Mobile Slider */}
+          <div className="md:hidden space-y-6">
+            {/* Image with Overlay */}
+            <div className="relative w-full h-[400px] rounded-xl overflow-hidden bg-slate-900">
+              <Image
+                src={currentProject.image}
+                alt={currentProject.title}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+
+              {/* Overlay Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
+                <h3 className="text-2xl font-normal text-white tracking-wide">
+                  {currentProject.title}
+                </h3>
+                <p className="text-xs text-white/80 leading-relaxed tracking-wide">
+                  {currentProject.accordionDescription}
+                </p>
+              </div>
+            </div>
+
+            {/* Tabs */}
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                onClick={() => setActiveTab('challenge')}
+                className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'challenge'
+                  ? 'text-[#CAED63] underline '
+                  : ' text-white '
+                  }`}
+              >
+                Challenge
+              </button>
+              <button
+                onClick={() => setActiveTab('solution')}
+                className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'solution'
+                  ? 'text-[#CAED63] underline '
+                  : ' text-white '
+                  }`}
+              >
+                Game Plan
+              </button>
+              <button
+                onClick={() => setActiveTab('plotTwist')}
+                className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'plotTwist'
+                  ? 'text-[#CAED63] underline '
+                  : ' text-white '
+                  }`}
+              >
+                Plot Twist
+              </button>
+            </div>
+
+            {/* Tab Content */}
+            <div className=" rounded-lg p-2 min-h-[150px]">
+              <p className="text-sm text-white/80 leading-relaxed tracking-wide">
+                {activeTab === 'challenge' && currentProject.challenge}
+                {activeTab === 'solution' && currentProject.solution}
+                {activeTab === 'plotTwist' && currentProject.plotTwist}
+              </p>
+            </div>
+
+            {/* Dots Navigation */}
+            <div className="flex justify-center gap-2 pt-1">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all ${currentSlide === index ? 'bg-[#CAED63] w-8' : 'bg-white/30 w-2'
+                    }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Accordion - Left Side */}
+            <div className="lg:col-span-1 space-y-3">
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  className={`border-b ${project.id === 1 ? 'border-t' : ''} border-[#DDDDDD] overflow-hidden transition-all duration-300`}
+                >
+                  <button
+                    onClick={() => toggleProject(project)}
+                    className={`w-full cursor-pointer text-left pt-3 pb-4 transition-all duration-300 flex items-center justify-between ${selectedProject.id === project.id
+                      ? 'bg-transparent text-white'
+                      : 'bg-transparent text-white hover:bg-transparent'
+                      }`}
+                  >
+                    <span className="font-medium text-sm md:text-[20px]">
+                      {project.title}
+                    </span>
+                    <div className="w-8 h-6 flex-shrink-0 relative">
+                      <Image
+                        src={expandedId === project.id ? '/images/active-accordan.png' : '/images/unactive -accordan.png'}
+                        alt="accordion icon"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </button>
+
+                  {/* Expanded Content */}
+                  {expandedId === project.id && (
+                    <div className="border-t border-slate-800 py-4 pr-4 animate-in fade-in duration-300">
+                      <p className="text-xs text-white/60 leading-relaxed tracking-wide">
+                        {project.accordionDescription}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Image - Right Side */}
+            <div className="lg:col-span-2">
+              {/* Image */}
+              <div className="relative w-full h-80 md:h-96 rounded-xl overflow-hidden mb-6 bg-slate-900">
+                <Image
+                  src={selectedProject.image || "/placeholder.svg"}
+                  alt={selectedProject.title}
+                  fill
+                  className="object-cover transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+              </div>
+
+              {/* Content Grid for expanded project */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Challenge */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-normal text-white tracking-wide">
+                    Challenge
+                  </h3>
+                  <p className="text-sm text-white/60 leading-relaxed tracking-wide">
+                    {selectedProject.challenge}
+                  </p>
+                </div>
+
+                {/* Plot Twist */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-normal text-white tracking-wide">
+                    The Plot Twist?
+                  </h3>
+                  <p className="text-sm text-white/60 leading-relaxed tracking-wide">
+                    {selectedProject.plotTwist}
+                  </p>
+                </div>
+              </div>
+
+              {/* Solution */}
+              <div className="mt-4 pt-4 space-y-2">
+                <h3 className="text-base font-normal tracking-wide">
+                  The Game Plan?
+                </h3>
+                <p className="text-sm text-white/60 leading-relaxed tracking-wide">
+                  {selectedProject.solution}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
   )
 }

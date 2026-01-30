@@ -31,8 +31,8 @@ export function SocialChannelsSection() {
     ];
 
     return (
-        <section className="py-1 md:py-6">
-            <div className="w-[90%] 2xl:w-[100%] 2xl:max-w-[1440px] mx-auto">
+        <section className="py-1 md:py-6 relative overflow-hidden">
+            <div className="w-[90%] 2xl:w-[100%] 2xl:max-w-[1440px] mx-auto relative z-10">
                 {/* Title */}
                 <h2 className="text-[25px] md:text-4xl 2xl:text-5xl font-normal text-white text-left md:text-center mb-6 tracking-wide">
                     Channels We Focus On
