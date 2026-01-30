@@ -16,18 +16,18 @@ export function ContactForm() {
 
     return (
         <section className="py-10">
-            <div className="w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto text-center">
+            <div className="w-[90%] md:w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto text-left md:text-center">
                 {/* Header */}
-                <h2 className="text-4xl 2xl:text-5xl font-normal text-white mb-12">
+                <h2 className="text-[25px] md:text-4xl 2xl:text-5xl font-normal text-white mb-12">
                     Let's Talk Book A Free Consultation
                 </h2>
 
-                <div className="bg-[#181818]  p-8 lg:p-14 text-left w-full">
+                <div className="bg-[#181818] p-4 md:p-8 lg:p-14 text-left w-full">
                     <div className="mb-8">
-                        <h3 className="text-2xl lg:text-3xl font-normal text-white mb-2">
+                        <h3 className="text-[20px] md:text-2xl lg:text-3xl font-normal text-white mb-2">
                             Have a project in mind?
                         </h3>
-                        <h3 className="text-2xl lg:text-3xl font-normal text-white mb-2">
+                        <h3 className="text-[20px] md:text-2xl lg:text-3xl font-normal text-white mb-2">
                             Let's connect and turn your vision into reality.
                         </h3>
                     </div>

@@ -86,7 +86,7 @@ export function RamadanSection() {
                             <p className="text-black font-normal text-sm mt-1">
                                 Now
                             </p>
-                            <p className="text-black text-3xl font-normal">
+                            <p className="text-black text-lg md:text-3xl font-normal">
                                 AED8,000
                             </p>
                             <span className="text-black/60 text-sm line-through">

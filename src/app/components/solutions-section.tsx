@@ -38,10 +38,10 @@ export function SolutionsSection() {
 
     return (
         <section className="py-10 ">
-            <div className="w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto">
-                <h2 className="text-4xl 2xl:text-5xl font-normal text-center text-white mb-16 leading-tight">
+            <div className="w-[90%] md:w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto">
+                <h2 className="text-[25px] md:text-4xl 2xl:text-5xl font-normal text-left md:text-center text-white md:mb-16 mb-10 leading-tight md:max-w-[400px] mx-auto">
                     Delivering Solutions
-                    <br />
+                    
                     with Unmatched Expertise
                 </h2>
 
@@ -60,7 +60,7 @@ export function SolutionsSection() {
                                         className="object-contain"
                                     />
                                 </div>
-                                <h3 className="text-2xl font-normal text-white transition-colors tracking-wide">
+                                <h3 className="text-[20px] md:text-2xl font-normal text-white transition-colors tracking-wide">
                                     {item.title}
                                 </h3>
                             </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 const projects = [
@@ -72,20 +72,32 @@ const projects = [
 export default function ResultsSection() {
   const [selectedProject, setSelectedProject] = useState(projects[0])
   const [expandedId, setExpandedId] = useState<number | null>(projects[0].id)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [activeTab, setActiveTab] = useState<'challenge' | 'solution' | 'plotTwist'>('challenge')
+
+  // Auto-slide for mobile
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % projects.length)
+    }, 1000) // Change slide every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [])
 
   const toggleProject = (project: typeof projects[0]) => {
     setSelectedProject(project)
     setExpandedId(expandedId === project.id ? null : project.id)
   }
 
+  const currentProject = projects[currentSlide]
+
   return (
-    <section className="w-full bg-black text-white py-16 px-4 md:px-8 lg:px-12">
-      <div className="w-[80%] 2xl:max-w-[1250px] mx-auto">
+    <section className="w-full bg-black text-white py-16 ">
+      <div className="w-[90%] md:w-[80%] 2xl:max-w-[1250px] mx-auto">
         {/* Header */}
         <div className="mx-auto 2xl:w-[50%]">
-          {/* Header */}
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl 2xl:text-5xl font-normal mb-3 text-balance">
+          <div className="mb-12 md:text-center">
+            <h2 className="text-[25px] md:text-4xl 2xl:text-5xl font-normal mb-3 text-balance">
               Results That Turn Heads
             </h2>
             <p className="text-white text-base 2xl:text-lg tracking-wide">
@@ -94,9 +106,85 @@ export default function ResultsSection() {
           </div>
         </div>
 
+        {/* Mobile Slider */}
+        <div className="md:hidden space-y-6">
+          {/* Image with Overlay */}
+          <div className="relative w-full h-[400px] rounded-xl overflow-hidden bg-slate-900">
+            <Image
+              src={currentProject.image}
+              alt={currentProject.title}
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Overlay Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
+              <h3 className="text-2xl font-normal text-white tracking-wide">
+                {currentProject.title}
+              </h3>
+              <p className="text-xs text-white/80 leading-relaxed tracking-wide">
+                {currentProject.accordionDescription}
+              </p>
+            </div>
+          </div>
+
+          {/* Tabs */}
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              onClick={() => setActiveTab('challenge')}
+              className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'challenge'
+                  ? 'text-[#CAED63] underline '
+                  : ' text-white '
+                }`}
+            >
+              Challenge
+            </button>
+            <button
+              onClick={() => setActiveTab('solution')}
+              className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'solution'
+                  ? 'text-[#CAED63] underline '
+                  : ' text-white '
+                }`}
+            >
+              Game Plan
+            </button>
+            <button
+              onClick={() => setActiveTab('plotTwist')}
+              className={`py-3 px-4 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === 'plotTwist'
+                  ? 'text-[#CAED63] underline '
+                  : ' text-white '
+                }`}
+            >
+              Plot Twist
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          <div className=" rounded-lg p-2 min-h-[150px]">
+            <p className="text-sm text-white/80 leading-relaxed tracking-wide">
+              {activeTab === 'challenge' && currentProject.challenge}
+              {activeTab === 'solution' && currentProject.solution}
+              {activeTab === 'plotTwist' && currentProject.plotTwist}
+            </p>
+          </div>
+
+          {/* Dots Navigation */}
+          <div className="flex justify-center gap-2 pt-1">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`h-2 rounded-full transition-all ${currentSlide === index ? 'bg-[#CAED63] w-8' : 'bg-white/30 w-2'
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Accordion - Left Side */}
           <div className="lg:col-span-1 space-y-3">
             {projects.map((project) => (
@@ -107,8 +195,8 @@ export default function ResultsSection() {
                 <button
                   onClick={() => toggleProject(project)}
                   className={`w-full cursor-pointer text-left pt-3 pb-4 transition-all duration-300 flex items-center justify-between ${selectedProject.id === project.id
-                      ? 'bg-transparent text-white'
-                      : 'bg-transparent text-white hover:bg-transparent'
+                    ? 'bg-transparent text-white'
+                    : 'bg-transparent text-white hover:bg-transparent'
                     }`}
                 >
                   <span className="font-medium text-sm md:text-[20px]">
