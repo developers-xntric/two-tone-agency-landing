@@ -4,30 +4,19 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-16  min-h-screen flex items-center">
-      <div className="w-[90%] 2xl:max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-12 gap-8 items-center">
+    <section className="relative 2xl:pt-36 pt-28 pb-20 flex items-center">
+      <div className="2xl:w-[100%] w-[90%] 2xl:max-w-[1440px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 items-center">
           {/* Left side - Video (70%) */}
-          <div className="col-span-12 lg:col-span-8">
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-teal-600 via-purple-600 to-purple-900 shadow-2xl">
+          <div className="w-full">
+            <div className="relative w-full aspect-video overflow-hidden bg-gradient-to-br from-teal-600 via-purple-600 to-purple-900 shadow-2xl">
               {/* Placeholder for video - you can replace with actual video */}
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source
-                  src="https://videos.pexels.com/video-files/18069247/18069247-hd_1920_1080_30fps.mp4"
-                  type="video/mp4"
-                />
-              </video>
+              <video src={"/video.mp4"} autoPlay muted loop className="w-full h-full object-cover" />
             </div>
           </div>
 
           {/* Right side - Content (30%) */}
-          <div className="col-span-12 lg:col-span-4 space-y-6">
+          <div className="w-full space-y-6">
             {/* Heading */}
             <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-foreground">
               Where Bold Ideas Meet Big Results
@@ -51,7 +40,7 @@ export default function HeroSection() {
             </button>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-4 pt-8 items-center">
+            <div className="grid grid-cols-3 gap-4 pt-8 items-center place-items-center">
 
               {/* Item 1 */}
               <div className="relative space-y-1  w-full">
@@ -61,7 +50,7 @@ export default function HeroSection() {
                 </p>
 
                 {/* Separator */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-[#FFFFFF33]" />
+                {/* <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-[#FFFFFF33]" /> */}
               </div>
 
               {/* Item 2 */}
@@ -72,7 +61,7 @@ export default function HeroSection() {
                 </p>
 
                 {/* Separator */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-[#FFFFFF33]" />
+                {/* <div className="absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[1px] bg-[#FFFFFF33]" /> */}
               </div>
 
               {/* Item 3 */}
