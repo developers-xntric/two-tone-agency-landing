@@ -82,17 +82,17 @@ export default function ResultsSection() {
     <section className="w-full bg-black text-white py-16 px-4 md:px-8 lg:px-12">
       <div className="w-[80%] 2xl:max-w-[1250px] mx-auto">
         {/* Header */}
-        <div className="mx-auto w-[50%]">
-  {/* Header */}
-  <div className="mb-12 text-center">
-    <h2 className="text-3xl md:text-4xl font-bold mb-3 text-balance">
-     Results That Turn Heads
-    </h2>
-    <p className="text-slate-400 text-base md:text-lg">
-      Our clients are hitting new milestones, driving solid ROI, and standing out from the crowd.
-    </p>
-  </div>
-</div>
+        <div className="mx-auto 2xl:w-[50%]">
+          {/* Header */}
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl 2xl:text-5xl font-bold mb-3 text-balance">
+              Results That Turn Heads
+            </h2>
+            <p className="text-white text-base 2xl:text-lg">
+              Our clients are hitting new milestones, driving solid ROI, and standing out from the crowd.
+            </p>
+          </div>
+        </div>
 
 
         {/* Main Content */}
@@ -102,20 +102,19 @@ export default function ResultsSection() {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className={`border-b ${project.id === 1 ? 'border-t' : ''} border-slate-800 overflow-hidden transition-all duration-300`}
+                className={`border-b ${project.id === 1 ? 'border-t' : ''} border-[#DDDDDD] overflow-hidden transition-all duration-300`}
               >
                 <button
                   onClick={() => toggleProject(project)}
-                  className={`w-full text-left p-4 transition-all duration-300 flex items-center justify-between ${
-                    selectedProject.id === project.id
+                  className={`w-full cursor-pointer text-left pt-3 pb-4 transition-all duration-300 flex items-center justify-between ${selectedProject.id === project.id
                       ? 'bg-transparent text-white'
                       : 'bg-transparent text-white hover:bg-transparent'
-                  }`}
+                    }`}
                 >
-                  <span className="font-medium text-sm md:text-base">
+                  <span className="font-medium text-sm md:text-[20px]">
                     {project.title}
                   </span>
-                  <div className="w-4 h-4 flex-shrink-0 relative">
+                  <div className="w-8 h-6 flex-shrink-0 relative">
                     <Image
                       src={expandedId === project.id ? '/images/active-accordan.png' : '/images/unactive -accordan.png'}
                       alt="accordion icon"
@@ -128,7 +127,7 @@ export default function ResultsSection() {
                 {/* Expanded Content */}
                 {expandedId === project.id && (
                   <div className="border-t border-slate-800 py-4 pr-4 animate-in fade-in duration-300">
-                    <p className="text-xs text-slate-300 leading-relaxed">
+                    <p className="text-xs text-white/50 leading-relaxed">
                       {project.accordionDescription}
                     </p>
                   </div>
@@ -157,7 +156,7 @@ export default function ResultsSection() {
                 <h3 className="text-sm font-semibold text-white tracking-wide">
                   Challenge
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-white/50 leading-relaxed">
                   {selectedProject.challenge}
                 </p>
               </div>
@@ -167,18 +166,18 @@ export default function ResultsSection() {
                 <h3 className="text-sm font-semibold text-white tracking-wide">
                   The Plot Twist?
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-white/50 leading-relaxed">
                   {selectedProject.plotTwist}
                 </p>
               </div>
             </div>
 
             {/* Solution */}
-            <div className="mt-4 pt-4 border-t border-slate-800 space-y-2">
+            <div className="mt-4 pt-4 space-y-2">
               <h3 className="text-sm font-semibold tracking-wide">
                 The Game Plan?
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-white/50 leading-relaxed">
                 {selectedProject.solution}
               </p>
             </div>

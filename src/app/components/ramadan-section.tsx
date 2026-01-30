@@ -33,7 +33,7 @@ export function RamadanSection() {
 
             {/* Divider Section */}
             <div className="py-16 text-center">
-                <h2 className="text-4xl lg:text-5xl font-bold text-white text-balance">
+                <h2 className="text-4xl 2xl:text-5xl font-bold text-white text-balance">
                     Fast. Creative. Ramadan-Ready.
                 </h2>
             </div>

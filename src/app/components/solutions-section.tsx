@@ -37,9 +37,9 @@ export function SolutionsSection() {
     ];
 
     return (
-        <section className="py-20 ">
+        <section className="py-10 ">
             <div className="w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto">
-                <h2 className="text-4xl lg:text-5xl font-bold text-center text-white mb-16 leading-tight">
+                <h2 className="text-4xl 2xl:text-5xl font-bold text-center text-white mb-16 leading-tight">
                     Delivering Solutions
                     <br />
                     with Unmatched Expertise
