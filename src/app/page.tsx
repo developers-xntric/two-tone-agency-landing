@@ -5,6 +5,7 @@ import { RamadanSection } from "./components/ramadan-section";
 import ResultsSection from "./components/results-section";
 import { SocialChannelsSection } from "./components/social-channels";
 import { SolutionsSection } from "./components/solutions-section";
+import { TestimonialsSection } from "./components/testimonials-section";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <SocialChannelsSection/>
       <ResultsSection/>
       <SolutionsSection/>
+      <TestimonialsSection />
       <ContactForm/>
       <Footer/>
     </div>
