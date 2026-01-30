@@ -79,7 +79,7 @@ export default function ResultsSection() {
   }
 
   return (
-    <section className="w-full bg-slate-950 text-white py-16 px-4 md:px-8 lg:px-12">
+    <section className="w-full bg-black text-white py-16 px-4 md:px-8 lg:px-12">
       <div className="w-[80%] 2xl:max-w-[1250px] mx-auto">
         {/* Header */}
         <div className="mx-auto w-[50%]">
