@@ -51,11 +51,11 @@ export function TestimonialsSection() {
         <section className="py-20 bg-gradient-to-br from-[#4A1B6D] via-[#5C2184] to-[#3D1558] relative overflow-hidden">
             <div className="w-[80%] 2xl:w-full 2xl:max-w-[1250px] mx-auto">
                 {/* Header */}
-                <div className="text-center mb-12">
+                <div className=" mb-12">
                     <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
                         What Our Clients Say About Two Tone Agency
                     </h2>
-                    <p className="text-white/80 text-base lg:text-lg max-w-3xl mx-auto">
+                    <p className="text-white/80 text-base lg:text-lg ">
                         Two Tone Agency remains globally recognized for pushing modern storytelling with innovative design to ensure
                         result-conductive advertising
                     </p>
@@ -64,13 +64,13 @@ export function TestimonialsSection() {
                 {/* Main Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 mb-16">
                     {/* Left - Success Stories */}
-                    <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                    <div className="bg-gradient-to-b from-[#000301] to-[#CAED63] rounded-2xl p-8 ">
                         <h3 className="text-3xl font-bold text-white mb-6">
                             Success
                             <br />
                             Stories
                         </h3>
-                        <p className="text-white/70 text-base mb-8 leading-relaxed">
+                        <p className="text-white/70 text-base mb-8 leading-relaxed pt-20">
                             See how we turned creative vision into unforgettable brand experiences.
                         </p>
                         {/* Client Avatars */}
@@ -90,9 +90,10 @@ export function TestimonialsSection() {
                             ))}
                         </div>
                     </div>
+                    <div>
 
                     {/* Right - Testimonial Card */}
-                    <div className="bg-white rounded-2xl p-8 lg:p-10 relative">
+                    <div className="bg-white rounded-2xl pl-5 pt-5 pb-6 lg:pl-5 pt-5 pb-6 relative">
                         {/* Client Info */}
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-16 h-16 rounded-full overflow-hidden relative bg-gray-200">
@@ -119,7 +120,7 @@ export function TestimonialsSection() {
                         </p>
 
                         {/* Navigation Arrows */}
-                        <div className="flex gap-3 absolute bottom-8 right-8">
+                        {/* <div className="flex gap-3 absolute bottom-8 right-8">
                             <button
                                 onClick={prevSlide}
                                 className="w-10 h-10 rounded-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center transition-colors"
@@ -134,11 +135,10 @@ export function TestimonialsSection() {
                             >
                                 <ChevronRight size={20} />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
-                </div>
 
-                {/* Client Logos */}
+                    {/* Client Logos */}
                 <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12 opacity-60">
                     {clientLogos.map((logo, index) => (
                         <div key={index} className="relative w-20 h-20 grayscale hover:grayscale-0 transition-all">
@@ -151,6 +151,10 @@ export function TestimonialsSection() {
                         </div>
                     ))}
                 </div>
+                    </div>
+                </div>
+
+               
 
                 {/* Slider Dots */}
                 <div className="flex justify-center gap-2 mt-8">
