@@ -19,14 +19,14 @@ export function TestimonialsSection() {
             clientName: "Ketki Shah",
             clientRole: "Head of Marketing, Landmark Hospitality",
             clientImage: "/ketki.png",
-            quote: "Partnering with LPS Brands on our social media mandate has been a smooth and effective experience. The team brings clarity to the process, consistency to the output, and just the right amount of creative push when needed. They've been reliable collaborators who understand both our brand tone and business goals.",
+            quote: "Partnering with Two Tone Agency on our social media mandate has been a smooth and effective experience. The team brings clarity to the process, consistency to the output, and just the right amount of creative push when needed. They've been reliable collaborators who understand both our brand tone and business goals.",
         },
         {
             id: 3,
             clientName: "Anup Kondakundi",
             clientRole: "Country Head of Marketing",
             clientImage: "/anup.png",
-            quote: "Collaborating with LPS on The Untold Stories campaign from initial briefing through launch and beyond was a deeply rewarding experience. It is crucial for an agency to accurately grasp the campaign brief and channel creativity into a direction that generates excitement and achieves the core objective. The team at LPS ensured we accomplished both, all within a demanding timeline",
+            quote: "Collaborating with Two Tone Agency on The Untold Stories campaign from initial briefing through launch and beyond was a deeply rewarding experience. It is crucial for an agency to accurately grasp the campaign brief and channel creativity into a direction that generates excitement and achieves the core objective. The team at Two Tone Agency ensured we accomplished both, all within a demanding timeline",
         },
     ];
 
