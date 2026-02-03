@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <div className="relative">
 
-      <div className="hidden md:block absolute left-[-35%] top-0 w-[300px] lg:w-[800px] h-full pointer-events-none">
+      <div className="hidden md:block absolute left-[-35%] top-0 w-75 lg:w-200 h-full pointer-events-none">
         <Image
           src="/left-gradient.png"
           alt="left "
@@ -17,7 +17,7 @@ export default function HeroSection() {
       </div>
 
       {/* Right Gradient */}
-      <div className="hidden md:block absolute right-[-30%] 2xl:right-[-38%] top-[-10%] w-[300px] lg:w-[800px] h-full pointer-events-none">
+      <div className="hidden md:block absolute right-[-30%] 2xl:right-[-38%] top-[-10%] w-75 lg:w-200 h-full pointer-events-none">
         <Image
           src="/right-gradient.png"
           alt="right"
@@ -27,20 +27,28 @@ export default function HeroSection() {
       </div>
       <section className="relative 2xl:pt-36 pt-20 md:pt-28 md:pb-20 flex items-center overflow-hidden">
 
-        <div className="2xl:w-[100%] w-[90%] 2xl:max-w-[1440px] mx-auto relative z-10">
+        <div className="2xl:w-full w-[90%] 2xl:max-w-360 mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 items-center">
             {/* Left side - Video (70%) */}
             <div className="w-full order-2 lg:order-1 ">
-              <div className="relative w-full aspect-video overflow-hidden bg-gradient-to-br from-teal-600 via-purple-600 to-purple-900 shadow-2xl">
+              <div className="relative w-full aspect-video overflow-hidden shadow-2xl">
                 {/* Placeholder for video - you can replace with actual video */}
-                <video src={"/video.mp4"} autoPlay muted loop className="w-full h-full object-cover" />
+                <video
+                  src="/left-gradient.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="object-contain object-left"
+                >
+                </video>
               </div>
             </div>
 
             {/* Right side - Content (30%) */}
             <div className="w-full space-y-6 order-1 lg:order-2">
               {/* Heading */}
-              <h1 className="text-4xl lg:text-5xl 2xl:text-6xl font-normal leading-tight 2xl:leading-[67px] text-foreground font-myfont tracking-wide">
+              <h1 className="text-4xl lg:text-5xl 2xl:text-6xl font-normal leading-tight 2xl:leading-16.75 text-foreground font-myfont tracking-wide">
                 Where Bold Ideas Meet Big Results
               </h1>
 
