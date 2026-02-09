@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image'
 
 
@@ -72,7 +74,15 @@ export function RamadanSection() {
                                     Unlock premium content & Social Media at special Ramadan Rates
                                 </p>
                             </div>
-                            <button className="mt-6 cursor-pointer hover:bg-transparent hover:text-white hover:border-[#CAED63] border bg-[#CAED63] text-black px-6 py-2 rounded-full font-normal hover:bg-opacity-90 transition-all w-full">
+                            <button
+                                onClick={() => {
+                                    document.getElementById('contact-form')?.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }}
+                                className="mt-6 cursor-pointer hover:bg-transparent hover:text-white hover:border-[#CAED63] border bg-[#CAED63] text-black px-6 py-2 rounded-full font-normal hover:bg-opacity-90 transition-all w-full"
+                            >
                                 Enquire Now
                             </button>
                         </div>
@@ -90,7 +100,15 @@ export function RamadanSection() {
                                     AED7,000
                                 </p>
                             </div>
-                            <button className="mt-6 cursor-pointer hover:bg-transparent hover:text-white hover:border-[#CAED63] border-[#CAED63] border bg-[#CAED63] text-black px-6 py-2 rounded-full font-normal hover:bg-opacity-90 transition-all w-full">
+                            <button
+                                onClick={() => {
+                                    document.getElementById('contact-form')?.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }}
+                                className="mt-6 cursor-pointer hover:bg-transparent hover:text-white hover:border-[#CAED63] border-[#CAED63] border bg-[#CAED63] text-black px-6 py-2 rounded-full font-normal hover:bg-opacity-90 transition-all w-full"
+                            >
                                 Enquire Now
                             </button>
                         </div>
@@ -117,7 +135,15 @@ export function RamadanSection() {
                                 </div>
 
                             </div>
-                            <button className="mt-6 cursor-pointer hover:bg-transparent hover:border-[#CAED63] border-[#CAED63] border bg-[#fff] text-black px-6 py-2 rounded-full font-normal hover:bg-opacity-90 transition-all w-full">
+                            <button
+                                onClick={() => {
+                                    document.getElementById('contact-form')?.scrollIntoView({
+                                        behavior: 'smooth',
+                                        block: 'start'
+                                    });
+                                }}
+                                className="mt-6 cursor-pointer hover:bg-transparent hover:border-[#CAED63] border-[#CAED63] border bg-[#fff] text-black px-6 py-2 rounded-full font-normal hover:bg-opacity-90 transition-all w-full"
+                            >
                                 Enquire Now
                             </button>
                         </div>

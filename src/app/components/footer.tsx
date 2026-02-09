@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
     return (
@@ -10,7 +11,7 @@ export function Footer() {
                 {/* Main Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-8 xl:gap-1 2xl:gap-8 md:items-center mb-6">
                     {/* Logo */}
-                    <div className="flex justify-start">
+                    <Link target="_blank" href="https://twotoneagency.com/" className="flex justify-start w-fit">
                         <div className="relative w-24 h-16">
                             <Image
                                 src="/logo.svg"
@@ -19,7 +20,7 @@ export function Footer() {
                                 className="object-contain"
                             />
                         </div>
-                    </div>
+                    </Link>
 
                     {/* Center Text */}
                     <div className="text-left">
@@ -32,11 +33,19 @@ export function Footer() {
 
                     {/* CTA Button */}
                     <div className="flex md:flex-row flex-col md:justify-end gap-10">
-                        <button className="inline-flex w-fit items-center gap-2 pl-6 pr-2 py-2 rounded-full font-normal
+                        <button
+                            onClick={() => {
+                                document.getElementById('contact-form')?.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }}
+                            className="inline-flex w-fit items-center gap-2 pl-6 pr-2 py-2 rounded-full font-normal
     bg-white/20 backdrop-blur-md text-white
     border border-white/20
     hover:bg-white/20 transition-all duration-300
-    group cursor-pointer tracking-wide text-sm md:text-base">
+    group cursor-pointer tracking-wide text-sm md:text-base"
+                        >
 
                             Connect with an expert
 

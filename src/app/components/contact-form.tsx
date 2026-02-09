@@ -28,8 +28,8 @@ export function ContactForm() {
                 />
             </div>
 
-           
-            <section className="py-10 relative overflow-hidden">
+
+            <section id="contact-form" className="py-10 relative overflow-hidden">
 
                 <div className="w-[90%] md:w-[80%] 2xl:w-[100%] 2xl:max-w-[1250px] mx-auto text-left md:text-center relative z-10">
                     {/* Header */}

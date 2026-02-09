@@ -59,7 +59,15 @@ export default function HeroSection() {
               </p>
 
               {/* CTA Button */}
-              <button className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-1 md:py-2 rounded-full bg-accent text-accent-foreground font-normal hover:opacity-90 transition-opacity group cursor-pointer">
+              <button
+                onClick={() => {
+                  document.getElementById('contact-form')?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
+                className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-1 md:py-2 rounded-full bg-accent text-accent-foreground font-normal hover:opacity-90 transition-opacity group cursor-pointer"
+              >
                 GET IN TOUCH
                 <div className="bg-white rounded-full p-2">
                   <ArrowRight
