@@ -48,7 +48,7 @@ export default function HeroSection() {
             {/* Right side - Content (30%) */}
             <div className="w-full space-y-6 order-1 lg:order-2">
               {/* Heading */}
-              <h1 className="text-4xl lg:text-5xl 2xl:text-6xl font-normal leading-tight 2xl:leading-16.75 text-foreground font-myfont tracking-wide">
+              <h1 className="text-4xl lg:text-5xl 2xl:text-6xl font-normal leading-tight 2xl:leading-16.75 text-white font-myfont tracking-wide">
                 Where Bold Ideas Meet Big Results
               </h1>
 
