@@ -6,15 +6,69 @@ import { useState } from "react";
 
 
 export function ContactForm() {
-    const [phone, setPhone] = useState("");
+    const [formMessage, setFormMessage] = useState(""); // new
+    const [isError, setIsError] = useState(false);      // new
 
-    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        // Only allow numbers
-        if (/^\d*$/.test(value)) {
-            setPhone(value);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target;
+
+        if (name === "phone" && !/^\d*$/.test(value)) return;
+
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setFormMessage(""); // reset message
+        setIsError(false);
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok || data.error) {
+                setIsError(true);
+                setFormMessage(data.error || "Failed to submit. Try again.");
+            } else {
+                setIsError(false);
+                setFormMessage("Thank you! Your message has been sent.");
+                setFormData({ name: "", email: "", phone: "", message: "" });
+            }
+
+        } catch (err) {
+            console.error("Submit error:", err);
+            setIsError(true);
+            setFormMessage("An unexpected error occurred. Try again.");
+        } finally {
+            setLoading(false);
         }
     };
+
+
+
 
     return (
         <div className="relative ">
@@ -47,7 +101,7 @@ export function ContactForm() {
                             </h3>
                         </div>
 
-                        <form className="space-y-8">
+                        <form className="space-y-8" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 {/* Name */}
                                 <div className="space-y-2">
@@ -57,6 +111,10 @@ export function ContactForm() {
                                     <input
                                         type="text"
                                         placeholder="Joseph"
+                                        name="name"
+                                        required
+                                        value={formData.name}
+                                        onChange={handleChange}
                                         className="w-full bg-[#050505] placeholder:text-white border border-white/10 rounded-xl px-5 py-4 text-white  focus:outline-none focus:border-[#CAED63] transition-colors"
                                     />
                                 </div>
@@ -69,6 +127,10 @@ export function ContactForm() {
                                     <input
                                         type="email"
                                         placeholder="You@Example.com"
+                                        name="email"
+                                        required
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         className="w-full bg-[#050505] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white focus:outline-none focus:border-[#CAED63] transition-colors"
                                     />
                                 </div>
@@ -80,8 +142,10 @@ export function ContactForm() {
                                     </label>
                                     <input
                                         type="text"
-                                        value={phone}
-                                        onChange={handlePhoneChange}
+                                        name="phone"
+                                        required
+                                        value={formData.phone}
+                                        onChange={handleChange}
                                         placeholder="+971"
                                         className="w-full bg-[#050505] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white focus:outline-none focus:border-[#CAED63] transition-colors"
                                     />
@@ -96,6 +160,10 @@ export function ContactForm() {
                                 <textarea
                                     placeholder="Tell us more about your requirement"
                                     rows={4}
+                                    required
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     className="w-full bg-[#050505] border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white focus:outline-none focus:border-[#CAED63] transition-colors resize-none"
                                 />
                             </div>
@@ -103,19 +171,32 @@ export function ContactForm() {
                             {/* Submit Button */}
                             <div className="flex justify-center">
                                 <button
-                                    type="button"
-                                    className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-2 rounded-full font-normal hover:opacity-90 transition-opacity group cursor-pointer"
+                                    type="submit"
+                                    disabled={loading}
+                                    className="inline-flex bg-[#CAED63] text-black items-center gap-2 pl-6 pr-2 py-2 rounded-full font-normal hover:opacity-90 transition-opacity group cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    Submit
+                                    {loading ? "Sending..." : "Submit"}
                                     <div className="bg-white rounded-full p-2">
                                         <ArrowRight
                                             size={18}
-                                            className="group-hover:translate-x-1 transition-transform"
+                                            className={`group-hover:translate-x-1 transition-transform ${loading ? "opacity-50" : ""
+                                                }`}
                                         />
                                     </div>
                                 </button>
+
                             </div>
                         </form>
+
+                        {formMessage && (
+                            <p
+                                className={`text-sm mt-4 text-center ${isError ? "text-red-500" : "text-green-500"
+                                    }`}
+                            >
+                                {formMessage}
+                            </p>
+                        )}
+
                     </div>
                 </div>
             </section>
