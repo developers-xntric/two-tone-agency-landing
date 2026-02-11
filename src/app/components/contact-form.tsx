@@ -27,6 +27,10 @@ export function ContactForm() {
         if (name === "phone") {
             if (!/^\+?\d*$/.test(value)) return;
             if (value.startsWith("+971") && value.length > 13) return;
+            if (value === "") {
+                setFormData((prev) => ({ ...prev, [name]: "+971" }));
+                return;
+            }
         }
 
         setFormData((prev) => ({ ...prev, [name]: value }));
