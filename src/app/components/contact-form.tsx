@@ -13,7 +13,7 @@ export function ContactForm() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
-        phone: "",
+        phone: "+971",
         message: "",
     });
 
@@ -24,7 +24,10 @@ export function ContactForm() {
     ) => {
         const { name, value } = e.target;
 
-        if (name === "phone" && !/^\d*$/.test(value)) return;
+        if (name === "phone") {
+            if (!/^\+?\d*$/.test(value)) return;
+            if (value.startsWith("+971") && value.length > 13) return;
+        }
 
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
