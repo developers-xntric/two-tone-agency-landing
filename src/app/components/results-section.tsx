@@ -32,7 +32,7 @@ const projects = [
       "This comprehensive approach has significantly amplified Del Monte’s digital footprint, leading to higher audience engagement, stronger brand recall, and increased consumer trust ",
     media: {
       type: "single-video",
-      src: "/case-studies/2.webm", 
+      src: "/case-studies/2.webm",
     },
   },
   {
@@ -48,7 +48,7 @@ const projects = [
       "The approach brought forth awareness for the launch of the new sauces thus enhancing the Original Chickenjoy consumption experience. The wide variety of sauces also helped the brand reach out to newer target audiences and expose them to the flavors of Jollibee.",
     media: {
       type: "single-video",
-      src: "/case-studies/3.webm", 
+      src: "/case-studies/3.webm",
     },
   },
   {
@@ -115,7 +115,7 @@ const projects = [
       "The rebrand resonated with coffee lovers and business partners alike, elevating Coffee Planet’s market presence. TwoTone’s ability to execute high-quality campaigns at speed proved why we’re the go-to strategic branding partner.",
     media: {
       type: "single-video",
-      src: "/case-studies/7.webm", 
+      src: "/case-studies/7.webm",
     },
   },
   {
@@ -129,7 +129,7 @@ const projects = [
       'We hammered in on the term "fill me up" to play on the consumers subconscious, especially when combined with appetizing liquid shots that evoke the desired mouthwatering effect. This approach was strengthened even more by our use of Classical Arabic - a style no other beverage is using, and one that reflected off the brands authentic heritage in such an intrinsically Arabian month.  We drafted a poem, and our poetic tone of voice captured the sophisticated and artistic essence of previous brand communications. The poem now becomes a manifesto for the brand and a springboard for future communication.  Our concept captured all aspects of the brief - embodying the Ramadan feel... showcasing the product ingredients... conveying goodness, generosity, nostalgia and the brands Arabian heritage... in a way that deeply speaks to the consumers heart and soul.',
     media: {
       type: "single-video",
-      src: "/case-studies/8.webm", 
+      src: "/case-studies/8.webm",
     },
   },
 ];
@@ -170,9 +170,11 @@ export default function ResultsSection() {
             <video
               loop
               autoPlay
+              muted
+              playsInline
+              preload="auto"
               src={project.media.src}
               {...commonVideoProps}
-              
             />
           </div>
         );
@@ -186,6 +188,8 @@ export default function ResultsSection() {
                 loop
                 muted
                 autoPlay
+                playsInline
+                preload="auto"
                 {...commonVideoProps}
                 className="w-full h-[300px] object-cover md:h-[480px]"
               />
@@ -197,6 +201,8 @@ export default function ResultsSection() {
                 loop
                 muted
                 autoPlay
+                playsInline
+                preload="auto"
                 className="w-full h-[300px] object-cover md:h-[480px]"
               />
             </div>
@@ -212,6 +218,7 @@ export default function ResultsSection() {
                   src={project.media.leftTopImage}
                   alt="Upper image"
                   fill
+                  priority
                   className="object-cover"
                 />
               </div>
@@ -220,6 +227,7 @@ export default function ResultsSection() {
                   src={project.media.leftBottomImage}
                   alt="Lower image"
                   fill
+                  priority
                   className="object-cover"
                 />
               </div>
@@ -230,6 +238,8 @@ export default function ResultsSection() {
                 loop
                 muted
                 autoPlay
+                playsInline
+                preload="auto"
                 className="w-full h-[300px] md:h-[465px] object-cover "
               />
             </div>
@@ -247,7 +257,7 @@ export default function ResultsSection() {
     }
   };
 
-  const hasSolution = selectedProject.solution?.trim().length > 0;
+
 
   return (
     <div className="relative">
@@ -302,11 +312,10 @@ export default function ResultsSection() {
             <div className="grid grid-cols-3 gap-2 px-2">
               <button
                 onClick={() => setActiveTab("challenge")}
-                className={`py-3 px-2 text-sm font-normal tracking-wide rounded-lg transition-all ${
-                  activeTab === "challenge"
+                className={`py-3 px-2 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === "challenge"
                     ? "text-[#CAED63] underline"
                     : "text-white"
-                }`}
+                  }`}
               >
                 Brief
               </button>
@@ -314,11 +323,10 @@ export default function ResultsSection() {
               {currentProject.id !== 9 && (
                 <button
                   onClick={() => setActiveTab("solution")}
-                  className={`py-3 px-2 text-sm font-normal tracking-wide rounded-lg transition-all ${
-                    activeTab === "solution"
+                  className={`py-3 px-2 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === "solution"
                       ? "text-[#CAED63] underline"
                       : "text-white"
-                  }`}
+                    }`}
                 >
                   Execution
                 </button>
@@ -326,11 +334,10 @@ export default function ResultsSection() {
 
               <button
                 onClick={() => setActiveTab("plotTwist")}
-                className={`py-3 px-2 text-sm font-normal tracking-wide rounded-lg transition-all ${
-                  activeTab === "plotTwist"
+                className={`py-3 px-2 text-sm font-normal tracking-wide rounded-lg transition-all ${activeTab === "plotTwist"
                     ? "text-[#CAED63] underline"
                     : "text-white"
-                }`}
+                  }`}
               >
                 Impact
               </button>
@@ -349,9 +356,8 @@ export default function ResultsSection() {
                 <button
                   key={i}
                   onClick={() => setCurrentSlide(i)}
-                  className={`h-2 rounded-full transition-all ${
-                    currentSlide === i ? "bg-[#CAED63] w-8" : "bg-white/30 w-2"
-                  }`}
+                  className={`h-2 rounded-full transition-all ${currentSlide === i ? "bg-[#CAED63] w-8" : "bg-white/30 w-2"
+                    }`}
                 />
               ))}
             </div>
@@ -399,59 +405,73 @@ export default function ResultsSection() {
             </div>
 
             {/* Content + Media */}
-            <div className="lg:col-span-2 space-y-6 ">
-              {renderMedia(selectedProject)}
+            <div className="lg:col-span-2 relative min-h-[500px]">
+              {projects.map((project) => {
+                const hasSolution = project.solution?.trim().length > 0;
+                return (
+                  <div
+                    key={project.id}
+                    className={
+                      selectedProject.id === project.id
+                        ? "block space-y-6 animate-in fade-in duration-500"
+                        : "hidden"
+                    }
+                  >
+                    {renderMedia(project)}
 
-              {hasSolution ? (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <h3 className="text-lg font-normal text-white tracking-wide">
-                        Brief
-                      </h3>
-                      <p className="text-sm text-white/70 leading-relaxed tracking-wide">
-                        {selectedProject.challenge}
-                      </p>
-                    </div>
-                    <div className="space-y-3">
-                      <h3 className="text-lg font-normal text-white tracking-wide">
-                        Impact
-                      </h3>
-                      <p className="text-sm text-white/70 leading-relaxed tracking-wide">
-                        {selectedProject.plotTwist}
-                      </p>
-                    </div>
-                  </div>
+                    {hasSolution ? (
+                      <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="space-y-3">
+                            <h3 className="text-lg font-normal text-white tracking-wide">
+                              Brief
+                            </h3>
+                            <p className="text-sm text-white/70 leading-relaxed tracking-wide">
+                              {project.challenge}
+                            </p>
+                          </div>
+                          <div className="space-y-3">
+                            <h3 className="text-lg font-normal text-white tracking-wide">
+                              Impact
+                            </h3>
+                            <p className="text-sm text-white/70 leading-relaxed tracking-wide">
+                              {project.plotTwist}
+                            </p>
+                          </div>
+                        </div>
 
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-normal text-white tracking-wide">
-                      Execution
-                    </h3>
-                    <p className="text-sm text-white/70 leading-relaxed tracking-wide">
-                      {selectedProject.solution}
-                    </p>
+                        <div className="space-y-3">
+                          <h3 className="text-lg font-normal text-white tracking-wide">
+                            Execution
+                          </h3>
+                          <p className="text-sm text-white/70 leading-relaxed tracking-wide">
+                            {project.solution}
+                          </p>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                        <div className="space-y-3">
+                          <h3 className="text-lg font-normal text-white tracking-wide">
+                            Brief
+                          </h3>
+                          <p className="text-sm text-white/70 leading-relaxed tracking-wide">
+                            {project.challenge}
+                          </p>
+                        </div>
+                        <div className="space-y-3">
+                          <h3 className="text-lg font-normal text-white tracking-wide">
+                            Impact
+                          </h3>
+                          <p className="text-sm text-white/70 leading-relaxed tracking-wide">
+                            {project.plotTwist}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-normal text-white tracking-wide">
-                      Brief
-                    </h3>
-                    <p className="text-sm text-white/70 leading-relaxed tracking-wide">
-                      {selectedProject.challenge}
-                    </p>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-normal text-white tracking-wide">
-                      Impact
-                    </h3>
-                    <p className="text-sm text-white/70 leading-relaxed tracking-wide">
-                      {selectedProject.plotTwist}
-                    </p>
-                  </div>
-                </div>
-              )}
+                );
+              })}
             </div>
           </div>
         </div>
