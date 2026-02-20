@@ -11,6 +11,7 @@ export function RamadanSection() {
                     src="/left-gradient.png"
                     alt="left "
                     fill
+                    priority
                     className="object-contain object-left"
                 />
             </div>
@@ -21,6 +22,7 @@ export function RamadanSection() {
                     src="/right-gradient.png"
                     alt="right"
                     fill
+                    priority
                     className="object-contain object-right"
                 />
             </div>

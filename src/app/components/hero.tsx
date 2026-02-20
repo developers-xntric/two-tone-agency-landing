@@ -12,6 +12,7 @@ export default function HeroSection() {
           src="/left-gradient.png"
           alt="left "
           fill
+          priority
           className="object-contain object-left"
         />
       </div>
@@ -22,6 +23,7 @@ export default function HeroSection() {
           src="/right-gradient.png"
           alt="right"
           fill
+          priority
           className="object-contain object-right"
         />
       </div>
